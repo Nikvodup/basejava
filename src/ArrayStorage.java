@@ -33,9 +33,10 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (Resume r : storage) {
-            if (uuid.equals(r.uuid)) {
-    int index = Arrays.asList(storage).indexOf(r);
+        Resume[] storage2 = Arrays.stream(storage).filter(condition).toArray(Resume[]::new);
+        for (Resume r : storage2) {
+            if (uuid.equals(r.toString())) {
+    int index = Arrays.asList(storage2).indexOf(r);
     storage[index] = null;
     for (int i = index + 1; i < storage.length; i++) {// really moves null behind String objects
         storage[i - 1] = storage[i];
