@@ -38,7 +38,7 @@ public class ArrayStorage {
             if (uuid.equals(r.toString())) {
     int index = Arrays.asList(storage2).indexOf(r);
     storage[index] = null;
-    for (int i = index + 1; i < storage.length; i++) {// really moves null behind String objects
+    for (int i = index + 1; i < storage.length; i++) {// really moves null(after deleting a resume) behind String objects
         storage[i - 1] = storage[i];
         storage[i] = null;
          }
