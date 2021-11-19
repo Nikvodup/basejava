@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -39,7 +40,7 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         for (Resume r : storage) {
-            if (r != null && uuid.equals(r.uuid)) {
+             if(r!=null && uuid.equals(r.uuid)) {
                 int index = Arrays.asList(storage).indexOf(r);
                 storage[index] = null;
                 for (int i = index + 1; i < storage.length; i++) {// really moves null(after deleting a resume) behind String objects
