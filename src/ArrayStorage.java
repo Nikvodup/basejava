@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -23,8 +24,8 @@ public class ArrayStorage {
 
 
     Resume get(String uuid) {
-        //  return  Arrays.stream(storage).filter(r-> r.uuid.equals(uuid)).findAny().orElse(null);
-        for (Resume r : storage) {
+      //    return  Arrays.stream(storage).filter(Objects::nonNull).filter(r-> r.uuid.equals(uuid)).findAny().orElse(null);
+       for (Resume r : storage) {
             if (r != null && uuid.equals(r.uuid)) {
                 int index = Arrays.asList(storage).indexOf(r);
                 return storage[index];
