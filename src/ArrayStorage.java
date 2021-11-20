@@ -27,11 +27,9 @@ public class ArrayStorage {
         // Resume r = new Resume();
         //   return  Arrays.stream(storage).filter(r-> r.uuid.equals(uuid)).findAny().orElse(null);
         for (Resume r : storage) {
-            if (r != null) {
-                if (uuid.equals(r.uuid)) {
+            if (r != null && uuid.equals(r.uuid)) {
                     int index = Arrays.asList(storage).indexOf(r);
                     return storage[index];
-                }
             }
         }
         return null;
@@ -40,7 +38,7 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         for (Resume r : storage) {
-             if(r!=null && uuid.equals(r.uuid)) {
+             if(r!=null && uuid==r.uuid) {
                 int index = Arrays.asList(storage).indexOf(r);
                 storage[index] = null;
                 for (int i = index + 1; i < storage.length; i++) {// really moves null(after deleting a resume) behind String objects
