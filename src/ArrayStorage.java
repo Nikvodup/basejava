@@ -9,7 +9,7 @@ public class ArrayStorage {
 
     private static AtomicInteger size = new AtomicInteger();
     Resume[] storage = new Resume[10000];
-
+    Resume r = new Resume();
 
     void clear() {
         Arrays.fill(storage, 0, size() + 1, null);
@@ -24,15 +24,14 @@ public class ArrayStorage {
 
 
     Resume get(String uuid) {
-        // Resume r = new Resume();
-        //   return  Arrays.stream(storage).filter(r-> r.uuid.equals(uuid)).findAny().orElse(null);
-        for (Resume r : storage) {
+           return  Arrays.stream(storage).filter(r-> r.uuid.equals(uuid)).findAny().orElse(null);
+    /*    for (Resume r : storage) {
             if (r != null && uuid.equals(r.uuid)) {
                     int index = Arrays.asList(storage).indexOf(r);
                     return storage[index];
             }
         }
-        return null;
+        return null;  */
     }
 
 
@@ -41,7 +40,7 @@ public class ArrayStorage {
              if(r!=null && uuid==r.uuid) {
                 int index = Arrays.asList(storage).indexOf(r);
                 storage[index] = null;
-                for (int i = index + 1; i < storage.length; i++) {// really moves null(after deleting a resume) behind String objects
+                for (int i = index + 1; i < storage.length; i++) {// really moves null(after deleting a resume) behind Resume objects
                     storage[i - 1] = storage[i];
                     storage[i] = null;
                 }
