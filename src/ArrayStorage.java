@@ -24,6 +24,13 @@ public class ArrayStorage {
 
     Resume get(String uuid) {
         return Arrays.stream(storage).limit(size).filter(r -> r.uuid.equals(uuid)).findAny().orElse(null);
+
+     /*   for (Resume r : storage){
+            if(r!=null && r.uuid==uuid){
+                return r;
+            }
+        }
+        return null;  */
     }
 
 
