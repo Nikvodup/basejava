@@ -16,12 +16,8 @@ public class ArrayStorage {
 
 
     void save(Resume r) {
-        if (r == null) {
-
-        } else {
             storage[size] = r;
             size++;
-        }
 
     }
 
@@ -33,9 +29,7 @@ public class ArrayStorage {
 
     void delete(String uuid) {
         Resume resumeToBeDeleted = Arrays.stream(storage).limit(size).filter(r -> r.uuid.equals(uuid)).findAny().orElse(null);
-
         Resume[] storage2;
-
         for (int i = 0; i < storage.length - 1 ; i++) {
             if (storage[i] == resumeToBeDeleted) {
                 storage2 = new Resume[storage.length - 1];
@@ -49,7 +43,6 @@ public class ArrayStorage {
                 break;
             }
         }
-
         size--;
     }
 
