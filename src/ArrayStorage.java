@@ -47,7 +47,8 @@ public class ArrayStorage {
      * @return array, contains only Resumes in storage (without null)
      */
     Resume[] getAll() {
-        return Arrays.stream(storage).limit(size).toArray(Resume[]::new);
+     //   return Arrays.stream(storage).limit(size).toArray(Resume[]::new);
+        return Arrays.copyOf(storage,size);
     }
 
 
