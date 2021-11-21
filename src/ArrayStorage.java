@@ -33,12 +33,8 @@ public class ArrayStorage {
         for (int i = 0; i < storage.length - 1 ; i++) {
             if (storage[i] == resumeToBeDeleted) {
                 storage2 = new Resume[storage.length - 1];
-                for (int index = 0; index < i; index++) {
-                    storage2[index] = storage[index];
-                }
-                for (int j = i; j < storage.length - 1; j++) {
-                    storage2[j] = storage[j + 1];
-                }
+                System.arraycopy(storage, 0, storage2, 0, i);
+                if (storage.length - 1 - i >= 0) System.arraycopy(storage, i + 1, storage2, i, storage.length - 1 - i);
                 storage = storage2;
                 break;
             }
