@@ -3,7 +3,6 @@ import java.util.Objects;
 
 
 public class ArrayStorage {
-
     private static int size;
     Resume[] storage = new Resume[10000];
 
@@ -22,24 +21,20 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-
-       for(Resume r : storage){
-            if (r!=null && uuid==r.uuid){
-                for (int i=0;i<size;i++){
-                    if (storage[i]==r) {
-                        Resume[] storage2 = new Resume[storage.length-1];
-                        System.arraycopy(storage, 0, storage2, 0, i);
-                        if (storage.length - 1 - i >= 0) System.arraycopy(storage, i + 1, storage2, i, storage.length - 1 - i);
-                        storage = storage2;
-                        size--;
-                        break;
-                    }else if (uuid == null || uuid!=r.uuid){return;}
+        Resume resumeToDelete = Arrays.stream(storage).limit(size).filter(r -> r.uuid.equals(uuid)).findAny().orElse(null);
+        if (uuid != null && resumeToDelete != null) {
+            for (int i = 0; i < size; i++) {
+                if (storage[i].uuid.equals(resumeToDelete.uuid)) {
+                    storage[i] = null;
+                    size--;
+                    for (int j = i + 1; j < storage.length - 1; j++) {
+                        storage[j - 1] = storage[j];
+                        storage[j] = null;
+                    }
                 }
             }
         }
     }
-
-
     /**
      * @return array, contains only Resumes in storage (without null)
      */

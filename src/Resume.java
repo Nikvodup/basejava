@@ -7,7 +7,8 @@ import java.util.function.ToLongFunction;
 /**
  * Initial resume class
  */
-public class Resume implements Comparable, Comparator<Resume> {
+public class Resume implements Comparable<Resume>
+{
 
     // Unique identifier
     String uuid ;
@@ -18,11 +19,16 @@ public class Resume implements Comparable, Comparator<Resume> {
     }
 
 
+
+
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Resume r) {
+         int id = this.uuid.compareTo(r.uuid);
+         return id;
     }
 
+
+    /*
     @Override
     public int compare(Resume o1, Resume o2) {
         return 0;
@@ -62,4 +68,6 @@ public class Resume implements Comparable, Comparator<Resume> {
     public Comparator<Resume> thenComparingDouble(ToDoubleFunction<? super Resume> keyExtractor) {
         return null;
     }
+
+    */
 }
