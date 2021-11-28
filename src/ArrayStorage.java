@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.Objects;
 
-
 public class ArrayStorage {
     private static int size;
     Resume[] storage = new Resume[10000];
@@ -17,24 +16,20 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        return Arrays.stream(storage).limit(size).filter(Objects::nonNull).filter(r -> r.uuid.equals(uuid)).findAny().orElse(null);
+        return Arrays.stream(storage).limit(size).filter(r -> r.uuid.equals(uuid)).findAny().orElse(null);
     }
 
     void delete(String uuid) {
-        Resume resumeToDelete = Arrays.stream(storage).limit(size).filter(r -> r.uuid.equals(uuid)).findAny().orElse(null);
-        if (uuid != null && resumeToDelete != null) {
             for (int i = 0; i < size; i++) {
-                if (storage[i].uuid.equals(resumeToDelete.uuid)) {
+                if (storage[i].uuid.equals(uuid)) {
                     storage[i] = null;
                     size--;
                     for (int j = i + 1; j <storage.length-1; j++) {
                         storage[j - 1] = storage[j];
-                        storage[j] = null;
                     }
                 }
             }
         }
-    }
     /**
      * @return array, contains only Resumes in storage (without null)
      */
