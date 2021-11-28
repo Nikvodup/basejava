@@ -27,7 +27,7 @@ public class ArrayStorage {
                 if (storage[i].uuid.equals(resumeToDelete.uuid)) {
                     storage[i] = null;
                     size--;
-                    for (int j = i + 1; j < storage.length - 1; j++) {
+                    for (int j = i + 1; j <storage.length-1; j++) {
                         storage[j - 1] = storage[j];
                         storage[j] = null;
                     }
