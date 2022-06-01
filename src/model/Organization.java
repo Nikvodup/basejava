@@ -15,6 +15,8 @@ public class Organization {
     private final String title;
     private final String description;
 
+
+
     public Organization(String name, String url, LocalDate startDate, LocalDate endDate, String title, String description) {
         Objects.requireNonNull(startDate, "startDate must not be null");
         Objects.requireNonNull(endDate, "endDate must not be null");
@@ -25,6 +27,9 @@ public class Organization {
         this.title = title;
         this.description = description;
     }
+
+
+
 
     @Override
     public boolean equals(Object o) {
