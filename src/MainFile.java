@@ -44,7 +44,7 @@ public class MainFile {
                     System.out.println("File: " + file.getName());
                 } else if (file.isDirectory()) {
                     System.out.println("Directory: " + file.getName());
-                    printDirectoryDeeply(file); // recursion happens here
+                    printDirectoryDeeply(file); // recursion happens here - method calls itself once again
                 }
             }
         }
