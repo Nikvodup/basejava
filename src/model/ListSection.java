@@ -7,7 +7,7 @@ import java.util.Objects;
  * gkislin
  * 14.07.2016
  */
-public class ListSection extends Section {
+public class ListSection extends Organization {
     private final List<String> items;
 
     public ListSection(List<String> items) {
