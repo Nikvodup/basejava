@@ -6,7 +6,9 @@ import model.Resume;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * Array based storage for Resumes
+ */
 public abstract class AbstractArrayStorage extends AbstractStorage<Integer> {
     protected static final int STORAGE_LIMIT = 10000;
 
@@ -27,7 +29,9 @@ public abstract class AbstractArrayStorage extends AbstractStorage<Integer> {
         storage[index] = r;
     }
 
-
+    /**
+     * @return array, contains only Resumes in storage (without null)
+     */
     @Override
     public List<Resume> doCopyAll() {
         return Arrays.asList(Arrays.copyOfRange(storage, 0, size));

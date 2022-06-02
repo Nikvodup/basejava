@@ -7,6 +7,7 @@ import exception.NotExistStorageException;
 import model.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
@@ -15,7 +16,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public abstract class AbstractStorageTest {
-    protected static final File STORAGE_DIR = new File("D:\\projects\\storage");
+    protected static final File STORAGE_DIR = new File("D:\\MyStorage");
+    {
+        try {
+            STORAGE_DIR.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     protected Storage storage;
 
@@ -89,7 +97,7 @@ public abstract class AbstractStorageTest {
     public void update() throws Exception {
         Resume newResume = new Resume(UUID_1, "New Name");
         storage.update(newResume);
-        assertTrue(newResume.equals(storage.get(UUID_1)));
+        assertEquals(newResume, storage.get(UUID_1));
     }
 
     @Test(expected = NotExistStorageException.class)
