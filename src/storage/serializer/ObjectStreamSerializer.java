@@ -5,9 +5,7 @@ import model.Resume;
 
 import java.io.*;
 
-/**
- * Created by val on 2017-08-05.
- */
+
 public class ObjectStreamSerializer implements StreamSerializer {
 
     @Override
