@@ -13,7 +13,7 @@ public class MainConcurrency {
             @Override
             public void run() {
                 System.out.println(getName() + ", " + getState());
-                throw new IllegalStateException();
+                throw new IllegalStateException(); // the thread is terminated
             }
         };
         thread0.start();
