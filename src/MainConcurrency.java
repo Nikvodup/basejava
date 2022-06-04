@@ -1,3 +1,6 @@
+/*
+
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.*;
@@ -84,6 +87,7 @@ public class MainConcurrency {
             }
         });
 */
+/*
         latch.await(10, TimeUnit.SECONDS);
         executorService.shutdown();
 //        System.out.println(mainConcurrency.counter);
@@ -129,3 +133,4 @@ public class MainConcurrency {
 //        }
     }
 }
+*/
