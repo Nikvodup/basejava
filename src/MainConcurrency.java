@@ -48,14 +48,44 @@ public class MainConcurrency {
             threads.add(thread);
         }
 
+        System.out.println(Thread.currentThread().getName());
+
         threads.forEach(t -> {
             try {
-                t.join();
+                t.join();  // join happens always in the main thread
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
         System.out.println(mainConcurrency.counter);
+
+        // example of a deadlock
+
+        final String lock1 = "lock1";
+        final String lock2 = "lock2";
+        deadLock(lock1, lock2);
+        deadLock(lock2, lock1);
+    }
+
+    private static void deadLock(Object lock1, Object lock2) {
+        new Thread(() -> {
+            System.out.println("Waiting " + lock1);
+            synchronized (lock1) {
+                System.out.println("Holding " + lock1);
+                System.out.println(Thread.currentThread().getName());
+                System.out.println(Thread.currentThread().getName());
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("Waiting " + lock2);
+                synchronized (lock2) {
+                    System.out.println("Holding " + lock2);
+                    System.out.println(Thread.currentThread().getName());
+                }
+            }
+        }).start();
     }
 
     private synchronized void inc() {
