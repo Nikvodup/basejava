@@ -19,7 +19,6 @@ public class MainConcurrency {
         thread0.start();
 
         new Thread(new Runnable() {
-
             @Override
             public void run() {
                 System.out.println(Thread.currentThread().getName() + ", " + Thread.currentThread().getState());
@@ -42,6 +41,7 @@ public class MainConcurrency {
             Thread thread = new Thread(() -> {
                 for (int j = 0; j < 100; j++) {
                     mainConcurrency.inc();
+
                 }
             });
             thread.start();
@@ -61,6 +61,7 @@ public class MainConcurrency {
     private synchronized void inc() {
 //        synchronized (this) {
 //        synchronized (MainConcurrency.class) {
+
         counter++;
 //                wait();
 //                readFile
