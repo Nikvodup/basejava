@@ -6,6 +6,7 @@ import exception.ExistStorageException;
 import exception.NotExistStorageException;
 import model.*;
 
+import Config;
 import java.io.File;
 import java.io.IOException;
 import java.time.Month;
@@ -16,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public abstract class AbstractStorageTest {
-    protected static final File STORAGE_DIR = new File("D:\\MyStorage");
+    protected static final File STORAGE_DIR = Config.;
     {
         try {
             STORAGE_DIR.createNewFile();

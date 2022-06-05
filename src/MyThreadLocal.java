@@ -1,5 +1,9 @@
 
-
+/*
+Class SimpleDateFormat is MUTABLE and NOT threadsafe as it's stateful. So all threads can't have
+access to one instance of the class. ThreadLocal class allows each thread to lock onto
+individual instance of SimpleDateFormat.
+ */
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Future;
