@@ -3,6 +3,7 @@ package storage;
 
 import exception.ExistStorageException;
 import exception.NotExistStorageException;
+import util.Config;
 import model.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,25 +13,21 @@ import java.io.IOException;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+
 
 import static org.junit.Assert.assertEquals;
 
 public abstract class AbstractStorageTest {
-    protected static final File STORAGE_DIR = new File("D:/Basejava222/basejava/storage");
-    {
-        try {
-            STORAGE_DIR.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    protected static final File STORAGE_DIR = Config.get().getStorageDir();
+
 
     protected Storage storage;
 
-    private static final String UUID_1 = "uuid1";
-    private static final String UUID_2 = "uuid2";
-    private static final String UUID_3 = "uuid3";
-    private static final String UUID_4 = "uuid4";
+    private static final String UUID_1 = UUID.randomUUID().toString();
+    private static final String UUID_2 = UUID.randomUUID().toString();
+    private static final String UUID_3 = UUID.randomUUID().toString();
+    private static final String UUID_4 = UUID.randomUUID().toString();
 
     private static final Resume R1;
     private static final Resume R2;

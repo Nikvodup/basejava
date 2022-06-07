@@ -1,3 +1,13 @@
+
+/*
+. При сериализации и десериализации  Json(Gson) не поддерживает наследование классов.
+Section is an ancestor and many descendants.
+Поэтому необходим адаптер JsonSectionAdapter. XML(JAXB) все это поддерживает.
+
+ */
+
+
+
 package util;
 
 import com.google.gson.*;
