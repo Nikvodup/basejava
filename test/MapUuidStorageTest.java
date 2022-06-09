@@ -1,4 +1,7 @@
-package storage;
+//package storage;
+
+//import storage.AbstractStorageTest;
+import storage.MapUuidStorage;
 
 public class MapUuidStorageTest extends AbstractStorageTest {
 

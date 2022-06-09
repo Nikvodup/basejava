@@ -1,4 +1,6 @@
-package storage;
+//package storage;
+
+import storage.MapResumeStorage;
 
 public class MapResumeStorageTest extends AbstractStorageTest {
 

@@ -18,7 +18,7 @@ public class FileStorage extends AbstractStorage<File> {
 
     private StreamSerializer streamSerializer;
 
-    protected FileStorage(File directory, StreamSerializer streamSerializer) {
+    public FileStorage(File directory, StreamSerializer streamSerializer) {
         Objects.requireNonNull(directory, "directory must not be null");
 
         this.streamSerializer = streamSerializer;

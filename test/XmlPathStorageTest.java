@@ -1,5 +1,6 @@
-package storage;
+//package storage;
 
+import storage.PathStorage;
 import storage.serializer.XmlStreamSerializer;
 
 public class XmlPathStorageTest extends AbstractStorageTest {

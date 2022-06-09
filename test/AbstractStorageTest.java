@@ -1,8 +1,9 @@
-package storage;
+//package storage;
 
 
 import exception.ExistStorageException;
 import exception.NotExistStorageException;
+import storage.Storage;
 import util.Config;
 import model.*;
 import org.junit.Before;

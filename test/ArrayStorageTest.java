@@ -1,4 +1,7 @@
-package storage;
+//package storage;
+
+//import storage.AbstractArrayStorageTest;
+import storage.ArrayStorage;
 
 public class ArrayStorageTest extends AbstractArrayStorageTest {
 
