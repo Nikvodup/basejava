@@ -1,5 +1,7 @@
 package model;
 
+
+
 import util.LocalDateAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -19,6 +21,8 @@ import static util.DateUtil.of;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Organization implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    public static final Organization EMPTY = new Organization("", "", Position.EMPTY);
 
     private Link homePage;
     private List<Position> positions = new ArrayList<>();
@@ -62,8 +66,14 @@ public class Organization implements Serializable {
         return "Organization(" + homePage + "," + positions + ')';
     }
 
+    /**
+     * gkislin
+     * 28.07.2016
+     */
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Position implements Serializable {
+        public static final Position EMPTY = new Position();
+
         @XmlJavaTypeAdapter(LocalDateAdapter.class)
         private LocalDate startDate;
         @XmlJavaTypeAdapter(LocalDateAdapter.class)

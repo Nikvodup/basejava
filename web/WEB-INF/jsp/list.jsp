@@ -11,7 +11,9 @@
 <body>
 <jsp:include page="fragments/header.jsp"/>
 <section>
-    <table border="1" cellpadding="8" cellspacing="0">
+    <a href="resume?action=add"><img src="img/add.png"></a>
+    <br>
+    <table border="1" cellpadding="8" cellspacing="0" style="margin: auto">
         <tr>
             <th>Имя</th>
             <th>Email</th>
@@ -23,7 +25,7 @@
             <tr>
                 <td><a href="resume?uuid=${resume.uuid}&action=view">${resume.fullName}</a></td>
                 <td><%=ContactType.MAIL.toHtml(resume.getContact(ContactType.MAIL))%></td>
-                <td><a href="resume?uuid=${resume.uuid}&action=delete"><img src="web/img/delete.png"></a></td>
+                <td><a href="resume?uuid=${resume.uuid}&action=delete"><img src="img/delete.png"></a></td>
                 <td><a href="resume?uuid=${resume.uuid}&action=edit"><img src="img/pencil.png"></a></td>
             </tr>
         </c:forEach>

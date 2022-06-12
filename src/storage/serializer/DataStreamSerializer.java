@@ -68,10 +68,10 @@ public class DataStreamSerializer implements StreamSerializer {
             String uuid = dis.readUTF();
             String fullName = dis.readUTF();
             Resume resume = new Resume(uuid, fullName);
-            readItems(dis, () -> resume.addContact(ContactType.valueOf(dis.readUTF()), dis.readUTF()));
+            readItems(dis, () -> resume.setContact(ContactType.valueOf(dis.readUTF()), dis.readUTF()));
             readItems(dis, () -> {
                 SectionType sectionType = SectionType.valueOf(dis.readUTF());
-                resume.addSection(sectionType, readSection(dis, sectionType));
+                resume.setSection(sectionType, readSection(dis, sectionType));
             });
             return resume;
         }
@@ -107,13 +107,12 @@ public class DataStreamSerializer implements StreamSerializer {
         }
         return list;
     }
- // Pattern Strategy. Runnable impossible because it doesn't throw any I/O exceptions.
-    // This interface is used in readItems()
+
     private interface ElementProcessor {
         void process() throws IOException;
     }
 
-    private interface ElementReader<T> { // it's used in readList()
+    private interface ElementReader<T> {
         T read() throws IOException;
     }
 
