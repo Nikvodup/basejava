@@ -1,14 +1,14 @@
-<%@ page import="model.ListSection" %>
-<%@ page import="model.OrganizationSection" %>
-<%@ page import="model.TextSection" %>
-<%@ page import="util.HtmlUtil" %>
+<%@ page import="ru.javawebinar.basejava.model.ListSection" %>
+<%@ page import="ru.javawebinar.basejava.model.OrganizationSection" %>
+<%@ page import="ru.javawebinar.basejava.model.TextSection" %>
+<%@ page import="ru.javawebinar.basejava.util.HtmlUtil" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/style.css">
-    <jsp:useBean id="resume" type="model.Resume" scope="request"/>
+    <jsp:useBean id="resume" type="ru.javawebinar.basejava.model.Resume" scope="request"/>
     <title>Резюме ${resume.fullName}</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <p>
         <c:forEach var="contactEntry" items="${resume.contacts}">
             <jsp:useBean id="contactEntry"
-                         type="java.util.Map.Entry<model.ContactType, java.lang.String>"/>
+                         type="java.util.Map.Entry<ru.javawebinar.basejava.model.ContactType, java.lang.String>"/>
                 <%=contactEntry.getKey().toHtml(contactEntry.getValue())%><br/>
         </c:forEach>
     <p>
@@ -26,10 +26,10 @@
     <table cellpadding="2">
         <c:forEach var="sectionEntry" items="${resume.sections}">
             <jsp:useBean id="sectionEntry"
-                         type="java.util.Map.Entry<model.SectionType, model.Section>"/>
+                         type="java.util.Map.Entry<ru.javawebinar.basejava.model.SectionType, ru.javawebinar.basejava.model.Section>"/>
             <c:set var="type" value="${sectionEntry.key}"/>
             <c:set var="section" value="${sectionEntry.value}"/>
-            <jsp:useBean id="section" type="model.Section"/>
+            <jsp:useBean id="section" type="ru.javawebinar.basejava.model.Section"/>
             <tr>
                 <td colspan="2"><h2><a name="type.name">${type.title}</a></h2></td>
             </tr>
@@ -74,7 +74,7 @@
                             </td>
                         </tr>
                         <c:forEach var="position" items="${org.positions}">
-                            <jsp:useBean id="position" type="model.Organization.Position"/>
+                            <jsp:useBean id="position" type="ru.javawebinar.basejava.model.Organization.Position"/>
                             <tr>
                                 <td width="15%" style="vertical-align: top"><%=HtmlUtil.formatDates(position)%>
                                 </td>
@@ -92,3 +92,4 @@
 <jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>
+
